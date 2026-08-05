@@ -8,10 +8,28 @@
   margin: 0;
   line-height: 1.5;
   font-family: weight('regular'), serif;
+  color: color('text', 'primary');
+}
+
+a {
+  text-decoration: none;
 }
 
 .icon {
   width: 16px;
   height: 16px;
   fill: color('text', 'secondary');
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: color('background', 'light');
+}
+
+
+.nav__item {
+  // todo возможно, удалить или добавить стилей
+  padding: 0 25px;
 }
