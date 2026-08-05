@@ -1,6 +1,9 @@
 <template>
   <button
       class="app-btn"
+      :class="{
+        'app-btn--accent': accent,
+      }"
       :disabled="disabled"
       @click="onClick"
   >
@@ -12,6 +15,7 @@
 export default {
   name: "AppBtn",
   props: {
+    accent: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
   },
   methods: {
@@ -39,6 +43,10 @@ export default {
   min-width: 118px;
   font-family: weight('bold'), serif;
   font-size: size('base');
+
+  &--accent {
+    background: color('btn', 'accent');
+  }
 
   &:hover {
     background: color('btn', 'hover');

@@ -1,34 +1,35 @@
 <template>
   <div class="footer">
-    <nav class="nav">
-      <router-link
-          v-for="(page, index) in pageList"
-          :key="index"
-          class="nav__item"
-          :to="page.path"
-      >
-        {{ page.title }}
-      </router-link>
-    </nav>
+    <div class="footer__wrap">
+      <nav class="nav">
+        <router-link
+            v-for="(page, index) in pageList"
+            :key="index"
+            class="nav__item"
+            :to="page.path"
+        >
+          {{ page.title }}
+        </router-link>
+      </nav>
+      <div class="footer__links">
 
-    <div class="footer__links">
+        <a
+            class="footer__links-item"
+            href="tel:+78125555555"
+        >
+          <PhoneIcon class="icon" />
+          +7 (812) 555-55-55
+        </a>
 
-      <a
-        class="footer__links-item"
-        href="tel:+78125555555"
-      >
-        <PhoneIcon class="icon" />
-        +7 (812) 555-55-55
-      </a>
-
-      <a
-        class="footer__links-item"
-        href="https://yandex.ru/maps/-/CTGq4C2k"
-        target="_blank"
-      >
-        <AddressIcon class="icon" />
-        г. Санкт-Петербург, ул. Ефимова, 3
-      </a>
+        <a
+            class="footer__links-item"
+            href="https://yandex.ru/maps/-/CTGq4C2k"
+            target="_blank"
+        >
+          <AddressIcon class="icon" />
+          г. Санкт-Петербург, ул. Ефимова, 3
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -59,10 +60,16 @@ export default {
 
 <style lang="scss">
 .footer {
-  display: flex;
-  align-items: center;
   background: color('background', 'dark');
-  padding: 37px 0 38px;
+  padding: 38px 0 30px;
+
+  &__wrap {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: space-between;
+  }
 
   & .nav__item {
     color: color('text', 'secondary');
@@ -70,7 +77,7 @@ export default {
 
   &__links {
     display: flex;
-    gap: 66px;
+    gap: 25px;
   }
 
   &__links-item {

@@ -9,17 +9,13 @@
   line-height: 1.5;
   font-family: weight('regular'), serif;
   color: color('text', 'primary');
+  font-size: size('base');
 }
 
 a {
   text-decoration: none;
 }
 
-.icon {
-  width: 16px;
-  height: 16px;
-  fill: color('text', 'secondary');
-}
 
 #app {
   height: 100vh;
@@ -28,6 +24,26 @@ a {
   background: color('background', 'light');
 }
 
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: color('text', 'secondary');
+}
+
+.text-h1 {
+  font-size: size('h1');
+  font-family: weight('bold'), serif;
+}
+
+.text-h2 {
+  font-size: size('h2');
+  font-family: weight('regular'), serif;
+}
+
+.text-h3 {
+  font-size: size('h3');
+  font-family: weight('bold'), serif;
+}
 
 .nav__item {
   // todo возможно, удалить или добавить стилей
