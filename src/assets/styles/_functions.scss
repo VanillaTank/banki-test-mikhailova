@@ -1,0 +1,15 @@
+@import "colors";
+@function color($category, $key: null) {
+  @if $key {
+    @return map-get(map-get($colors, $category), $key);
+  }
+  @return map-get($colors, $category);
+}
+
+@import "fonts";
+@function size($category) {
+  @return map-get($font-size, $category);
+}
+@function weight($category) {
+  @return map-get($font-weight, $category);
+}
