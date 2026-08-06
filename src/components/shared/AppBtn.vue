@@ -3,11 +3,20 @@
     class="app-btn"
     :class="{
       'app-btn--accent': accent,
+      'app-btn--loading': isLoading,
     }"
     :disabled="disabled"
     @click="onClick"
   >
-    <slot />
+    <span
+      v-if="isLoading"
+      class="app-btn__spinner"
+    >
+      <span
+        class="spinner-self"
+      />
+    </span>
+    <slot v-else/>
   </button>
 </template>
 
@@ -17,10 +26,11 @@ export default {
   props: {
     accent: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
+    isLoading: { type: Boolean, default: false },
   },
   methods: {
     onClick () {
-      if (this.disabled) return
+      if (this.disabled || this.isLoading) return
       this.$emit('click')
     },
   },
@@ -41,6 +51,7 @@ export default {
   color: color('text', ligth);
   background: color('btn', 'primary');
   min-width: 118px;
+  min-height: 48px;
   font-family: weight('bold'), serif;
   font-size: size('base');
 
@@ -48,7 +59,11 @@ export default {
     background: color('btn', 'accent');
   }
 
-  &:hover {
+  &--loading {
+    cursor: default;
+  }
+
+  &:hover:not(.app-btn--loading) {
     background: color('btn', 'hover');
   }
 
@@ -58,6 +73,31 @@ export default {
 
   &.accent {
     background: color('btn', 'accent');
+  }
+
+  &__spinner {
+    position: relative;
+    display: block;
+  }
+
+  & .spinner-self {
+    color: color('text', 'ligth');
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-width: 2px;
+    border-style: solid;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1.7s linear infinite;
+    width: 15px;
+    height: 15px;
+  }
+
+  @keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
   }
 }
 </style>
