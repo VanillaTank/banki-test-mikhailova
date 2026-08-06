@@ -66,7 +66,8 @@ export default {
   &__wrap {
     display: flex;
     margin: 0 auto;
-    max-width: 1100px;
+    max-width: 1236px;
+    padding: 0 10px;
     width: 100%;
     justify-content: space-between;
   }
