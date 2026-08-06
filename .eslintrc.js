@@ -17,6 +17,7 @@ module.exports = {
     'vue/multi-word-component-names': ['error'],
     'vue/component-name-in-template-casing': ['error', 'PascalCase', {
       registeredComponentsOnly: false,
+      ignores: ['transition'],
     }],
     'object-curly-spacing': ['error', 'always'],
     indent: 'off', // Отключаем базовое правило indent, чтобы не мешало
