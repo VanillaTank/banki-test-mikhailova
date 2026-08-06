@@ -2,7 +2,7 @@
   <div class="catalog">
     <h1 class="text-h1 catalog__header">Картины эпохи Возрождения</h1>
 
-    <div v-if="isLoading">Загрузка...</div>
+    <div v-if="loading.fetchPictures">Загрузка...</div>
     
     <template v-else>
       <div
@@ -30,7 +30,7 @@ export default {
     PictureCard,
   },
   computed: {
-    ...mapState(['pictures', 'isLoading']),
+    ...mapState(['pictures', 'loading']),
   },
   created() {
     this.fetchPictures()

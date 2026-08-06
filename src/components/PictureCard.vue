@@ -43,6 +43,8 @@
         <AppBtn
           class="picture__btn"
           :accent="pic.isInCart"
+          :is-loading="inCartLoading"
+          @click="onClick"
         >
           <template v-if="pic.isInCart">
             <CheckIcon
@@ -66,6 +68,7 @@
 import { defineComponent } from 'vue'
 import AppBtn from '@/components/shared/AppBtn.vue'
 import CheckIcon from '@/assets/icons/check.svg'
+import { mapActions } from 'vuex'
 
 export default defineComponent({
   name: 'PictureCard',
@@ -75,6 +78,20 @@ export default defineComponent({
   },
   props: {
     pic: { type: Object, required: true },
+  },
+  data () {
+    return {
+      inCartLoading: false,
+    }
+  },
+  methods: {
+    ...mapActions(['addToCart', 'removeFromCart']),
+    onClick () {
+      this.inCartLoading = true
+      this.pic.isInCart
+        ? this.removeFromCart(this.pic.id).then(() => this.inCartLoading = false)
+        : this.addToCart(this.pic.id).then(() => this.inCartLoading = false)
+    },
   },
 })
 </script>
