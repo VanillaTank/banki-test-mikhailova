@@ -20,6 +20,7 @@
         />
         <AppBtn
           class="header__search-btn"
+          @click="search"
         >
           <template>Найти</template>
         </AppBtn>
@@ -49,6 +50,11 @@ export default {
       ],
       searchText: '',
     }
+  },
+  methods: {
+    search () {
+      this.$store.dispatch('searchPicture', this.searchText)
+    },
   },
 }
 </script>

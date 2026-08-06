@@ -2,77 +2,85 @@
   <div class="catalog">
     <h1 class="text-h1 catalog__header">Картины эпохи Возрождения</h1>
 
-    <div class="catalog__pictures">
+    <div v-if="isLoading">Загрузка...</div>
+    
+    <template v-else>
       <div
-        v-for="pic in pictures"
-        :key="pic.id"
-        class="picture"
-        :class="{
-          'picture--sold': pic.isSold
-        }"
+        v-if="pictures.length"
+        class="catalog__pictures"
       >
-        <img
-          class="picture__img"
-          :src="pic.img"
-          :alt="`Картина ${pic.name}`"
-        />
+        <div
+          v-for="pic in pictures"
+          :key="pic.id"
+          class="picture"
+          :class="{
+            'picture--sold': pic.isSold
+          }"
+        >
+          <img
+            class="picture__img"
+            :src="pic.img"
+            :alt="`Картина ${pic.name}`"
+          />
 
-        <div class="picture__info">
-          <h2 class="text-h2 picture__info-name">
-            «{{ pic.name }}»<br/>
-            {{ pic.author }}
-          </h2>
+          <div class="picture__info">
+            <h2 class="text-h2 picture__info-name">
+              «{{ pic.name }}»<br/>
+              {{ pic.author }}
+            </h2>
 
-          <div
-            v-if="pic.isSold"
-            class="picture__sold"
-          >
-            <h3
-              class="text-h3"
+            <div
+              v-if="pic.isSold"
+              class="picture__sold"
             >
-              Продана на аукционе
-            </h3>
-          </div>
-
-          <div
-            v-else
-            class="picture__sell"
-          >
-            <div>
-              <span
-                v-if="pic.prevCost"
-                class="picture__prev-cost"
-              >{{ pic.prevCost }}$</span>
-              <h3 class="text-h3">{{ pic.cost }}$</h3>
+              <h3
+                class="text-h3"
+              >
+                Продана на аукционе
+              </h3>
             </div>
 
-            <AppBtn
-              class="picture__btn"
-              :accent="pic.isInCart"
+            <div
+              v-else
+              class="picture__sell"
             >
-              <template v-if="pic.isInCart">
-                <CheckIcon
-                  class="picture__btn-icon"
-                  width="20"
-                  height="20"
-                />
-                В корзине
-              </template>
-              <template v-else>
-                Купить
-              </template>
-            </AppBtn>
+              <div>
+                <span
+                  v-if="pic.prevCost"
+                  class="picture__prev-cost"
+                >{{ pic.prevCost }}$</span>
+                <h3 class="text-h3">{{ pic.cost }}$</h3>
+              </div>
+
+              <AppBtn
+                class="picture__btn"
+                :accent="pic.isInCart"
+              >
+                <template v-if="pic.isInCart">
+                  <CheckIcon
+                    class="picture__btn-icon"
+                    width="20"
+                    height="20"
+                  />
+                  В корзине
+                </template>
+                <template v-else>
+                  Купить
+                </template>
+              </AppBtn>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div v-else>По вашему запросу ничего не найдено</div>
+    </template>
   </div>
 </template>
 
 <script>
-import { pictures } from '@/mockData'
 import AppBtn from '@/components/shared/AppBtn.vue'
 import CheckIcon from '@/assets/icons/check.svg'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'CatalogPage',
@@ -80,10 +88,14 @@ export default {
     AppBtn,
     CheckIcon,
   },
-  data () {
-    return {
-      pictures,
-    }
+  computed: {
+    ...mapState(['pictures', 'isLoading']),
+  },
+  created() {
+    this.fetchPictures()
+  },
+  methods: {
+    ...mapActions(['fetchPictures']),
   },
 }
 </script>
