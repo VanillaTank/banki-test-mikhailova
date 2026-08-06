@@ -9,9 +9,9 @@
 
 <script>
 export default {
-  name: "AppInput",
+  name: 'AppInput',
   props: {
-    value: { type: String, required: true, },
+    value: { type: String, required: true },
     placeholder: {
       type: String,
       default: 'Введите значение',

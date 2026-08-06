@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import CatalogPage from "@/views/CatalogPage.vue";
-import PageInWork from "@/views/PageInWork.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import CatalogPage from '@/views/CatalogPage.vue'
+import PageInWork from '@/views/PageInWork.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -33,13 +33,13 @@ const routes = [
   },
   {
     path: '*',
-    redirect: '/'
+    redirect: '/',
   },
-];
+]
 
 const router = new VueRouter({
   mode: 'history',
   routes,
-});
+})
 
-export default router;
+export default router

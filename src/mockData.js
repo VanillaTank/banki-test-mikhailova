@@ -9,7 +9,7 @@ export const pictures = [
     isInCart: false,
     isSold: false,
     description: '',
-    slides: ['', '', '']
+    slides: ['', '', ''],
   },
   {
     id: 1,
@@ -21,7 +21,7 @@ export const pictures = [
     isInCart: false,
     isSold: false,
     description: '',
-    slides: ['', '', '']
+    slides: ['', '', ''],
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const pictures = [
     isInCart: true,
     isSold: false,
     description: '',
-    slides: ['', '', '']
+    slides: ['', '', ''],
   },
   {
     id: 3,
@@ -45,6 +45,6 @@ export const pictures = [
     isInCart: false,
     isSold: true,
     description: '',
-    slides: ['', '', '']
-  }
+    slides: ['', '', ''],
+  },
 ]

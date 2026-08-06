@@ -4,17 +4,17 @@
 
     <div class="catalog__pictures">
       <div
-          v-for="pic in pictures"
-          :key="pic.id"
-          class="picture"
-          :class="{
-            'picture--sold': pic.isSold
-          }"
+        v-for="pic in pictures"
+        :key="pic.id"
+        class="picture"
+        :class="{
+          'picture--sold': pic.isSold
+        }"
       >
         <img
-            class="picture__img"
-            :src="pic.img"
-            :alt="`Картина ${pic.name}`"
+          class="picture__img"
+          :src="pic.img"
+          :alt="`Картина ${pic.name}`"
         />
 
         <div class="picture__info">
@@ -24,11 +24,11 @@
           </h2>
 
           <div
-              v-if="pic.isSold"
-              class="picture__sold"
+            v-if="pic.isSold"
+            class="picture__sold"
           >
             <h3
-                class="text-h3"
+              class="text-h3"
             >
               Продана на аукционе
             </h3>
@@ -40,15 +40,15 @@
           >
             <div>
               <span
-                  v-if="pic.prevCost"
-                  class="picture__prev-cost"
+                v-if="pic.prevCost"
+                class="picture__prev-cost"
               >{{ pic.prevCost }}$</span>
-                <h3 class="text-h3">{{ pic.cost }}$</h3>
+              <h3 class="text-h3">{{ pic.cost }}$</h3>
             </div>
 
             <AppBtn
-                class="picture__btn"
-                :accent="pic.isInCart"
+              class="picture__btn"
+              :accent="pic.isInCart"
             >
               <template v-if="pic.isInCart">
                 <CheckIcon
@@ -71,8 +71,8 @@
 
 <script>
 import { pictures } from '@/mockData'
-import AppBtn from "@/components/shared/AppBtn.vue";
-import CheckIcon from '@/assets/icons/check.svg';
+import AppBtn from '@/components/shared/AppBtn.vue'
+import CheckIcon from '@/assets/icons/check.svg'
 
 export default {
   name: 'CatalogPage',
@@ -84,7 +84,7 @@ export default {
     return {
       pictures,
     }
-  }
+  },
 }
 </script>
 

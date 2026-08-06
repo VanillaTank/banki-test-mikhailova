@@ -1,11 +1,11 @@
 <template>
   <button
-      class="app-btn"
-      :class="{
-        'app-btn--accent': accent,
-      }"
-      :disabled="disabled"
-      @click="onClick"
+    class="app-btn"
+    :class="{
+      'app-btn--accent': accent,
+    }"
+    :disabled="disabled"
+    @click="onClick"
   >
     <slot />
   </button>
@@ -13,17 +13,17 @@
 
 <script>
 export default {
-  name: "AppBtn",
+  name: 'AppBtn',
   props: {
     accent: { type: Boolean, default: false },
-    disabled: { type: Boolean, default: false }
+    disabled: { type: Boolean, default: false },
   },
   methods: {
     onClick () {
       if (this.disabled) return
       this.$emit('click')
-    }
-  }
+    },
+  },
 }
 </script>
 

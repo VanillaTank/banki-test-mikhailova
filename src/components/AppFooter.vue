@@ -2,29 +2,29 @@
   <div class="footer">
     <div class="footer__wrap">
       <nav class="nav">
-        <router-link
-            v-for="(page, index) in pageList"
-            :key="index"
-            class="nav__item"
-            :to="page.path"
+        <RouterLink
+          v-for="(page, index) in pageList"
+          :key="index"
+          class="nav__item"
+          :to="page.path"
         >
           {{ page.title }}
-        </router-link>
+        </RouterLink>
       </nav>
       <div class="footer__links">
 
         <a
-            class="footer__links-item"
-            href="tel:+78125555555"
+          class="footer__links-item"
+          href="tel:+78125555555"
         >
           <PhoneIcon class="icon" />
           +7 (812) 555-55-55
         </a>
 
         <a
-            class="footer__links-item"
-            href="https://yandex.ru/maps/-/CTGq4C2k"
-            target="_blank"
+          class="footer__links-item"
+          href="https://yandex.ru/maps/-/CTGq4C2k"
+          target="_blank"
         >
           <AddressIcon class="icon" />
           г. Санкт-Петербург, ул. Ефимова, 3
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import PhoneIcon from '@/assets/icons/phone.svg';
-import AddressIcon from '@/assets/icons/adress.svg';
+import PhoneIcon from '@/assets/icons/phone.svg'
+import AddressIcon from '@/assets/icons/adress.svg'
 
 export default {
   name: 'AppFooter',
@@ -54,7 +54,7 @@ export default {
         { title: 'О компании', path: '/about' },
       ],
     }
-  }
+  },
 }
 </script>
 

@@ -2,24 +2,24 @@
   <div class="header">
     <div class="container">
       <nav class="nav">
-        <router-link
-            v-for="(page, index) in pageList"
-            :key="index"
-            class="nav__item"
-            :to="page.path"
+        <RouterLink
+          v-for="(page, index) in pageList"
+          :key="index"
+          class="nav__item"
+          :to="page.path"
         >
           {{ page.title }}
-        </router-link>
+        </RouterLink>
       </nav>
 
       <div class="header__search">
         <AppInput
-            v-model="searchText"
-            class="header__search-input"
-            placeholder="Поиск по названию картины"
+          v-model="searchText"
+          class="header__search-input"
+          placeholder="Поиск по названию картины"
         />
         <AppBtn
-            class="header__search-btn"
+          class="header__search-btn"
         >
           <template>Найти</template>
         </AppBtn>
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import AppBtn from "@/components/shared/AppBtn.vue";
-import AppInput from "@/components/shared/AppInput.vue";
+import AppBtn from '@/components/shared/AppBtn.vue'
+import AppInput from '@/components/shared/AppInput.vue'
 
 export default {
   name: 'AppHeader',
@@ -49,7 +49,7 @@ export default {
       ],
       searchText: '',
     }
-  }
+  },
 }
 </script>
 
