@@ -1,4 +1,4 @@
-import { pictures } from '@/mockData'
+import { pictures } from '@/api/mockData'
 import { storage } from '@/utils/storage'
 
 const lagWrapper = (cb, maxLag = 4000, setLag = 0) => {
