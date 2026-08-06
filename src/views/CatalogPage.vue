@@ -13,7 +13,23 @@
           v-for="pic in pictures"
           :key="pic.id"
           :pic="pic"
+          @openModal="openModal"
         />
+
+        <AppModal
+          v-if="open"
+          :title="detailedPicture.name"
+          @close="closeModal"
+        >
+          <template #body>
+            <div class="detailed__description" v-html="detailedPicture.description"></div>
+
+            <div class="detailed__cost">
+              Стомость: <span class="text-h3">{{ detailedPicture.cost }}$</span>
+            </div>
+          </template>
+        </AppModal>
+
       </div>
       <div v-else>По вашему запросу ничего не найдено</div>
     </template>
@@ -23,11 +39,19 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import PictureCard from '@/components/PictureCard.vue'
+import AppModal from '@/components/shared/AppModal.vue'
 
 export default {
   name: 'CatalogPage',
   components: {
     PictureCard,
+    AppModal,
+  },
+  data () {
+    return {
+      open: false,
+      detailedPicture: null,
+    }
   },
   computed: {
     ...mapState(['pictures', 'loading']),
@@ -37,6 +61,14 @@ export default {
   },
   methods: {
     ...mapActions(['fetchPictures']),
+    openModal (id) {
+      this.detailedPicture = this.pictures[id]
+      this.open = true
+    },
+    closeModal () {
+      this.open = false
+      this.detailedPicture = null
+    },
   },
 }
 </script>
@@ -54,6 +86,18 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+  }
+}
+
+.detailed {
+  &__description {
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__cost {
+    margin-bottom: 25px;
   }
 }
 </style>

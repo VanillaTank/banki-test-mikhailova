@@ -9,10 +9,14 @@
       class="picture__img"
       :src="pic.img"
       :alt="`Картина ${pic.name}`"
+      @click="$emit('openModal', pic.id)"
     />
 
     <div class="picture__info">
-      <h2 class="text-h2 picture__info-name">
+      <h2
+        class="text-h2 picture__info-name"
+        @click="$emit('openModal', pic.id)"
+      >
         «{{ pic.name }}»<br/>
         {{ pic.author }}
       </h2>
@@ -64,7 +68,6 @@
 </template>
 
 <script>
-
 import { defineComponent } from 'vue'
 import AppBtn from '@/components/shared/AppBtn.vue'
 import CheckIcon from '@/assets/icons/check.svg'
