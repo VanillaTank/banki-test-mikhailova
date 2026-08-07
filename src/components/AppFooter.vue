@@ -63,6 +63,14 @@ export default {
   background: color('background', 'dark');
   padding: 38px 0 30px;
 
+  @media (max-width: 1100px) {
+    padding: 30px 0 25px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 20px 0 15px;
+  }
+
   &__wrap {
     display: flex;
     margin: 0 auto;
@@ -70,15 +78,41 @@ export default {
     padding: 0 10px;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media (max-width: 1100px) {
+      justify-content: center;
+    }
   }
 
   & .nav__item {
     color: color('text', 'secondary');
+
+    @media (max-width: 524px) {
+      width: 100%;
+      text-align: center;
+      display: block;
+      padding: 5px 15px;
+    }
   }
 
   &__links {
     display: flex;
     gap: 25px;
+
+    @media (max-width: 1100px) {
+      width: 100%;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 10px;
+    }
   }
 
   &__links-item {

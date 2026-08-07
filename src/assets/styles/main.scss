@@ -50,6 +50,10 @@ a {
 }
 
 .nav__item {
-  // todo возможно, удалить или добавить стилей
   padding: 0 25px;
+
+  @media (max-width: 640px) {
+    padding: 0 15px;
+  }
+
 }
