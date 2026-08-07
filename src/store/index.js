@@ -33,7 +33,7 @@ export default new Vuex.Store({
   actions: {
     fetchPictures ({ commit }) {
       commit('SET_LOADING', { name: 'fetchPictures', value: true })
-      api.fetchPictures()
+      return api.fetchPictures()
         .then(data => {
           commit('SET_PICTURES', data)
         })
@@ -45,7 +45,7 @@ export default new Vuex.Store({
     },
     searchPicture ({ commit }, searchText) {
       commit('SET_LOADING', { name: 'searchPicture', value: true })
-      api.fetchPicturesByName(searchText)
+      return api.fetchPicturesByName(searchText)
         .then(data => {
           commit('SET_PICTURES', data)
         })

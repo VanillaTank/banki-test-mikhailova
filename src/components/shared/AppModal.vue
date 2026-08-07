@@ -89,11 +89,11 @@ export default {
     position: absolute;
     top: 8px;
     right: 8px;
-    fill: color('text', 'secondary');
+    fill: color('btn', 'primary');
     cursor: pointer;
 
     &:hover {
-      fill: color('text', 'primary');
+      fill: color('btn', 'hover');
     }
   }
 }

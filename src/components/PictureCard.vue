@@ -111,6 +111,7 @@ export default defineComponent({
   &__img {
     border-bottom: 1px solid color('border', 'light');
     height: 160px;
+    cursor: pointer;
   }
 
   &__info {
@@ -119,6 +120,7 @@ export default defineComponent({
 
   &__info-name {
     margin-bottom: 22px;
+    cursor: pointer;
   }
 
   &__sold {

@@ -24,9 +24,16 @@
           <template #body>
             <div class="detailed__description" v-html="detailedPicture.description"></div>
 
-            <div class="detailed__cost">
+            <div
+              v-if="detailedPicture.cost"
+              class="detailed__cost"
+            >
               Стомость: <span class="text-h3">{{ detailedPicture.cost }}$</span>
             </div>
+
+            <AppSlider
+              :paths="detailedPicture.slides"
+            />
           </template>
         </AppModal>
 
@@ -40,10 +47,12 @@
 import { mapActions, mapState } from 'vuex'
 import PictureCard from '@/components/PictureCard.vue'
 import AppModal from '@/components/shared/AppModal.vue'
+import AppSlider from '@/components/shared/AppSlider/index.vue'
 
 export default {
   name: 'CatalogPage',
   components: {
+    AppSlider,
     PictureCard,
     AppModal,
   },
