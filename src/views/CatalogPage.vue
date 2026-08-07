@@ -2,7 +2,12 @@
   <div class="catalog">
     <h1 class="text-h1 catalog__header">Картины эпохи Возрождения</h1>
 
-    <div v-if="loading.fetchPictures">Загрузка...</div>
+    <div
+      v-if="loading.fetchPictures"
+      class="catalog__loading"
+    >
+      Загрузка...
+    </div>
     
     <template v-else>
       <div
@@ -85,16 +90,45 @@ export default {
 <style lang="scss">
 .catalog {
   margin: 45px auto;
-  max-width: 1236px;
-  padding: 0 10px;
+  max-width: 1256px;
+  padding: 0 20px;
+
+  @media (max-width: 943px) {
+    margin: 30px auto;
+  }
 
   &__header {
     margin-bottom: 36px;
+
+    @media (max-width: 1256px) {
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      margin-bottom: 24px;
+    }
   }
+
+  &__loading {
+    @media (max-width: 943px) {
+      text-align: center;
+    }
+  }
+
   &__pictures {
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
+
+    @media (max-width: 1256px) {
+      max-width: 904px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 943px) {
+      justify-content: center;
+    }
   }
 }
 

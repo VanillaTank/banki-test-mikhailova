@@ -21,8 +21,16 @@ export default {
 }
 </script>
 
-<style>
-.page {
-  flex-grow: 1;
+<style lang="scss">
+#app {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: color('background', 'light');
+
+  .page {
+    flex-grow: 1;
+  }
 }
 </style>

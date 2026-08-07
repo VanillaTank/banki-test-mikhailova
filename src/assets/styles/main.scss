@@ -16,14 +16,6 @@ a {
   text-decoration: none;
 }
 
-
-#app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: color('background', 'light');
-}
-
 .icon {
   width: 16px;
   height: 16px;
@@ -33,16 +25,28 @@ a {
 .text-h1 {
   font-size: size('h1');
   font-family: weight('bold'), serif;
+
+  @media (max-width: 640px) {
+    font-size: 20px;
+  }
 }
 
 .text-h2 {
   font-size: size('h2');
   font-family: weight('regular'), serif;
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 }
 
 .text-h3 {
   font-size: size('h3');
   font-family: weight('bold'), serif;
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+  }
 }
 
 .nav__item {
