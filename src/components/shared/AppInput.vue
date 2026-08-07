@@ -28,6 +28,10 @@ export default {
     font-size: size('base');
     color: color('text', 'primary');
 
+    @media (max-width: 460px) {
+      padding: 8px 10px 8px 12px;
+    }
+
     &:focus {
       border: 1px solid color('border', 'dark');
     }

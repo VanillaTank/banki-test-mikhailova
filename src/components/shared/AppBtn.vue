@@ -55,6 +55,12 @@ export default {
   font-family: weight('bold'), serif;
   font-size: size('base');
 
+  @media (max-width: 460px) {
+    min-height: 39px;
+    min-width: 98px;
+    padding: 9px 5px;
+  }
+
   &--accent {
     background: color('btn', 'accent');
   }

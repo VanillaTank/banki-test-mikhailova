@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <div class="container">
-      <nav class="nav">
+    <div class="header__container">
+      <nav class="header__nav">
         <RouterLink
           v-for="(page, index) in pageList"
           :key="index"
@@ -12,11 +12,17 @@
         </RouterLink>
       </nav>
 
+
+      <MobileNav
+        class="header__nav-mobile"
+        :menuItems="pageList"
+      />
+
       <div class="header__search">
         <AppInput
           v-model="searchText"
           class="header__search-input"
-          placeholder="Поиск по названию картины"
+          :placeholder="placeholder"
         />
         <AppBtn
           class="header__search-btn"
@@ -32,10 +38,12 @@
 <script>
 import AppBtn from '@/components/shared/AppBtn.vue'
 import AppInput from '@/components/shared/AppInput.vue'
+import MobileNav from '@/components/MobileNav.vue'
 
 export default {
   name: 'AppHeader',
   components: {
+    MobileNav,
     AppBtn,
     AppInput,
   },
@@ -49,11 +57,28 @@ export default {
         { title: 'О компании', path: '/about' },
       ],
       searchText: '',
+      windowWidth: window.innerWidth,
     }
+  },
+  computed: {
+    placeholder () {
+      return this.windowWidth > 460 
+        ? 'Поиск по названию картины'
+        : 'Поиск по названию'
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     search () {
       this.$store.dispatch('searchPicture', this.searchText)
+    },
+    handleResize() {
+      this.windowWidth = window.innerWidth
     },
   },
 }
@@ -61,19 +86,38 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  display: flex;
-  align-items: center;
   border-bottom: 1px solid color('border', 'light');
   padding: 24px 0;
 
-  & .container {
+  &__container {
     max-width: 1236px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1000px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      justify-content: space-between;
+    }
+  }
+
+  &__nav {
+    @media (max-width: 1000px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 
   &__search {
@@ -82,10 +126,26 @@ export default {
     align-items: center;
     max-width: 416px;
     width: 100%;
+
+    @media (max-width: 1060px) {
+      max-width: 365px;
+    }
+
+    @media (max-width: 460px) {
+      max-width: 270px;
+    }
+  }
+
+  &__nav-mobile {
+    display: none;
+
+    @media (max-width: 640px) {
+      display: block;
+    }
   }
 
   &__search-input {
-    width: stretch;
+    width: 100%;
   }
 
   &__search-btn {

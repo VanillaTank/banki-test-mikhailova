@@ -47,7 +47,7 @@
 import { mapActions, mapState } from 'vuex'
 import PictureCard from '@/components/PictureCard.vue'
 import AppModal from '@/components/shared/AppModal.vue'
-import AppSlider from '@/components/shared/AppSlider/index.vue'
+import AppSlider from '@/components/shared/AppSlider.vue'
 
 export default {
   name: 'CatalogPage',
