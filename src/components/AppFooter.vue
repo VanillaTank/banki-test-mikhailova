@@ -37,6 +37,7 @@
 <script>
 import PhoneIcon from '@/assets/icons/phone.svg'
 import AddressIcon from '@/assets/icons/adress.svg'
+import pages from '@/utils/pages'
 
 export default {
   name: 'AppFooter',
@@ -46,13 +47,7 @@ export default {
   },
   data () {
     return {
-      pageList: [
-        { title: 'Каталог', path: '/' },
-        { title: 'Доставка', path: '/delivery' },
-        { title: 'Оплата', path: '/pay' },
-        { title: 'Контакты', path: '/contacts' },
-        { title: 'О компании', path: '/about' },
-      ],
+      pageList: pages,
     }
   },
 }

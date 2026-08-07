@@ -39,6 +39,7 @@
 import AppBtn from '@/components/shared/AppBtn.vue'
 import AppInput from '@/components/shared/AppInput.vue'
 import MobileNav from '@/components/MobileNav.vue'
+import pages from '@/utils/pages'
 
 export default {
   name: 'AppHeader',
@@ -49,13 +50,7 @@ export default {
   },
   data () {
     return {
-      pageList: [
-        { title: 'Каталог', path: '/' },
-        { title: 'Доставка', path: '/delivery' },
-        { title: 'Оплата', path: '/pay' },
-        { title: 'Контакты', path: '/contacts' },
-        { title: 'О компании', path: '/about' },
-      ],
+      pageList: pages,
       searchText: '',
       windowWidth: window.innerWidth,
     }
