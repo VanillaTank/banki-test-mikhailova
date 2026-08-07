@@ -22,6 +22,10 @@ a {
   fill: color('text', 'secondary');
 }
 
+.active-route {
+  color: color('btn', 'hover');
+}
+
 .text-h1 {
   font-size: size('h1');
   font-family: weight('bold'), serif;
