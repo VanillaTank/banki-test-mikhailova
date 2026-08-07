@@ -95,7 +95,7 @@ export default {
 
 .slider {
   position: relative;
-  min-height: 200px;
+  min-height: 250px;
   overflow: hidden;
 
   &__btn {
@@ -130,10 +130,25 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 30px;
 
     img {
       user-select: none;
-      object-fit: cover;
+      scale: 1.5;
+      max-width: 100%;
+      height: auto;
+
+      @media (max-width: 600px) {
+        scale: 1.3;
+      }
+
+      @media (max-width: 550px) {
+        scale: 1.1;
+      }
+
+      @media (max-width: 476px) {
+        scale: 1;
+      }
     }
   }
 }

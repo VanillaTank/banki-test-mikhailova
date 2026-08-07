@@ -141,6 +141,10 @@ export default {
 
   &__cost {
     margin-bottom: 25px;
+
+    @media (max-width: 600px) {
+      margin-bottom: 0;
+    }
   }
 }
 </style>

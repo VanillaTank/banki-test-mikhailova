@@ -60,10 +60,11 @@ export default {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
+    margin: 20px;
   }
 
   &__body {
-    margin: 20px 30px;
+    margin: 20px 30px 35px;
   }
 }
 
