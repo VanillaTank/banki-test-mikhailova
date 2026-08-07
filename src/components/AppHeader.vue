@@ -23,6 +23,7 @@
           v-model="searchText"
           class="header__search-input"
           :placeholder="placeholder"
+          @keydown.enter.native="search"
         />
         <AppBtn
           class="header__search-btn"
