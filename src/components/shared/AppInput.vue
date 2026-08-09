@@ -23,22 +23,22 @@ export default {
 <style lang="scss">
 .app-input {
     outline: none;
-    border: 1px solid color('border', 'light');
+    border: 1px solid colors('border', 'light');
     padding: 13px 16px 13px 18px;
     font-size: size('base');
-    color: color('text', 'primary');
+    color: colors('text', 'primary');
 
     @media (max-width: 460px) {
       padding: 8px 10px 8px 12px;
     }
 
     &:focus {
-      border: 1px solid color('border', 'dark');
+      border: 1px solid colors('border', 'dark');
     }
 
     &::placeholder {
       font-size: size('base');
-      color: color('text', 'placeholder');
+      color: colors('text', 'placeholder');
       opacity: 1; // сброс прозрачности для Firefox
     }
 }

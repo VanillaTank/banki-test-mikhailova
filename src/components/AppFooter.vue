@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss">
 .footer {
-  background: color('background', 'dark');
+  background: colors('background', 'dark');
   padding: 38px 0 30px;
 
   @media (max-width: 1100px) {
@@ -81,7 +81,7 @@ export default {
   }
 
   & .nav__item {
-    color: color('text', 'secondary');
+    color: colors('text', 'secondary');
 
     @media (max-width: 524px) {
       width: 100%;
@@ -111,7 +111,7 @@ export default {
   }
 
   &__links-item {
-    color: color('text', 'secondary');
+    color: colors('text', 'secondary');
     display: flex;
     align-items: center;
     gap: 8px;

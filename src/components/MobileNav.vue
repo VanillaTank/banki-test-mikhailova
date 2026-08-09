@@ -67,12 +67,12 @@ export default {
 
     &__line {
       height: 2px;
-      background: color('btn', 'primary');
+      background: colors('btn', 'primary');
     }
 
     &:hover {
       &__line {
-        background: color('btn', 'hover');
+        background: colors('btn', 'hover');
       }
     }
   }
@@ -103,7 +103,7 @@ export default {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: color('background', 'back');
+    background-color: colors('background', 'back');
     z-index: 1;
     transition: opacity 0.3s ease;
   }
@@ -111,7 +111,7 @@ export default {
   &__sidebar {
     position: relative;
     width: 300px;
-    background: color('background', 'dark');
+    background: colors('background', 'dark');
     height: 100%;
     padding: 35px;
   }
@@ -120,11 +120,11 @@ export default {
     position: absolute;
     top: 5px;
     right: 5px;
-    fill: color('btn', 'primary');
+    fill: colors('btn', 'primary');
     cursor: pointer;
 
     &:hover {
-      fill: color('btn', 'hover');
+      fill: colors('btn', 'hover');
     }
   }
 

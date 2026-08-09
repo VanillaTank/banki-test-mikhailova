@@ -95,7 +95,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  border-bottom: 1px solid color('border', 'light');
+  border-bottom: 1px solid colors('border', 'light');
   padding: 24px 0;
 
   &__container {

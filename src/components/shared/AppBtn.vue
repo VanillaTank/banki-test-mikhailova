@@ -48,8 +48,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: color('text', ligth);
-  background: color('btn', 'primary');
+  color: colors('text', ligth);
+  background: colors('btn', 'primary');
   min-width: 118px;
   min-height: 48px;
   font-family: weight('bold'), serif;
@@ -62,7 +62,7 @@ export default {
   }
 
   &--accent {
-    background: color('btn', 'accent');
+    background: colors('btn', 'accent');
   }
 
   &--loading {
@@ -70,15 +70,15 @@ export default {
   }
 
   &:hover:not(.app-btn--loading) {
-    background: color('btn', 'hover');
+    background: colors('btn', 'hover');
   }
 
   &:disabled {
-    background: color('btn', 'disabled');
+    background: colors('btn', 'disabled');
   }
 
   &.accent {
-    background: color('btn', 'accent');
+    background: colors('btn', 'accent');
   }
 
   &__spinner {
@@ -87,7 +87,7 @@ export default {
   }
 
   & .spinner-self {
-    color: color('text', 'ligth');
+    color: colors('text', 'ligth');
     display: block;
     position: absolute;
     top: 50%;

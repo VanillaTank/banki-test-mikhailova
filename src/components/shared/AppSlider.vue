@@ -120,12 +120,12 @@ export default {
   &__btn {
     position: absolute;
     top: 50%;
-    stroke: color('btn', 'primary');
+    stroke: colors('btn', 'primary');
     cursor: pointer;
     z-index: 10;
 
     &:hover {
-      stroke: color('btn', 'hover');
+      stroke: colors('btn', 'hover');
     }
 
     @media (max-width: 756px) {

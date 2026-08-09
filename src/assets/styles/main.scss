@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as *;
 
 *,
 *::before,
@@ -8,7 +8,7 @@
   margin: 0;
   line-height: 1.5;
   font-family: weight('regular'), serif;
-  color: color('text', 'primary');
+  color: colors('text', 'primary');
   font-size: size('base');
 }
 
@@ -19,11 +19,11 @@ a {
 .icon {
   width: 16px;
   height: 16px;
-  fill: color('text', 'secondary');
+  fill: colors('text', 'secondary');
 }
 
 .active-route {
-  color: color('btn', 'hover');
+  color: colors('btn', 'hover');
 }
 
 .text-h1 {

@@ -102,14 +102,14 @@ export default defineComponent({
 <style lang="scss">
 .picture {
   width: 280px;
-  border: 1px solid color('border', 'light');
+  border: 1px solid colors('border', 'light');
 
   &--sold {
     opacity: .5;
   }
 
   &__img {
-    border-bottom: 1px solid color('border', 'light');
+    border-bottom: 1px solid colors('border', 'light');
     height: 160px;
     cursor: pointer;
   }
@@ -137,13 +137,13 @@ export default defineComponent({
   }
 
   &__prev-cost {
-    color: color('text', 'muted');
+    color: colors('text', 'muted');
     position: relative;
 
     &::before {
       content: '';
       position: absolute;
-      background: color('text', 'muted');
+      background: colors('text', 'muted');
       left: 0;
       width: 100%;
       height: 1px;

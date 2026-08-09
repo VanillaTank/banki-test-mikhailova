@@ -46,7 +46,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: color('background', 'back');
+    background-color: colors('background', 'back');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,11 +94,11 @@ export default {
     position: absolute;
     top: 8px;
     right: 8px;
-    fill: color('btn', 'primary');
+    fill: colors('btn', 'primary');
     cursor: pointer;
 
     &:hover {
-      fill: color('btn', 'hover');
+      fill: colors('btn', 'hover');
     }
   }
 }
