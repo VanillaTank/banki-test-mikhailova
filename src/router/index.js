@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CatalogPage from '@/views/CatalogPage.vue'
-import PageInWork from '@/views/PageInWork.vue'
+const CatalogPage = () => import('@/views/CatalogPage.vue')
+const PageInWork = () => import('@/views/PageInWork.vue')
 
 Vue.use(VueRouter)
 
