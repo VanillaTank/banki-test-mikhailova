@@ -18,7 +18,10 @@
         :menuItems="pageList"
       />
 
-      <div class="header__search">
+      <div
+        v-if="$route.name === 'CatalogPage'"
+        class="header__search"
+      >
         <AppInput
           v-model="searchText"
           class="header__search-input"
@@ -93,6 +96,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 49px;
 
     @media (max-width: 1000px) {
       flex-wrap: wrap;
@@ -102,13 +106,16 @@ export default {
     @media (max-width: 640px) {
       justify-content: space-between;
     }
+
+    @media (max-width: 460px) {
+      min-height: 39px;
+    }
   }
 
   &__nav {
     @media (max-width: 1000px) {
       width: 100%;
       text-align: center;
-      margin-bottom: 22px;
     }
 
     @media (max-width: 640px) {
@@ -125,6 +132,10 @@ export default {
 
     @media (max-width: 1060px) {
       max-width: 365px;
+    }
+
+    @media (max-width: 1000px) {
+      margin-top: 22px;
     }
 
     @media (max-width: 460px) {
