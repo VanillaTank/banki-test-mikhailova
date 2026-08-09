@@ -27,7 +27,7 @@
 <script>
 import AngleIcon from '@/assets/icons/angle.svg'
 
-const SWIPE_THRESHOLD_PX = 100
+const SWIPE_THRESHOLD_PX = 50
 
 export default {
   name: 'AppSlider',
