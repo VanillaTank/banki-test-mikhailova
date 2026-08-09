@@ -1,5 +1,8 @@
 # Тестовое задание для banki.shop
 
+### Демо
+http://banki-test.fvds.ru/
+
 ### Требования
 - **Node.js** версии `16.20.2` (или `16.x`)
 - **npm** (поставляется вместе с Node.js)
@@ -11,7 +14,7 @@ node -v  # должно быть v16.20.2 или 16.x
 ```
 2. **Клонируйте репозиторий**
 ``` bash  
-   git clone <url-репозитория>   
+   git clone https://github.com/VanillaTank/banki-test-mikhailova
    cd banki-test-mikhailova
 ```   
 3. **Установите зависимости**
