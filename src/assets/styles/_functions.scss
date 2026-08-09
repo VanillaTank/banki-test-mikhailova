@@ -1,16 +1,17 @@
 @use "colors" as *;
 @use "fonts" as *;
+@use "sass:map";
 
 @function colors($category, $key: null) {
   @if $key {
-    @return map-get(map-get($colors, $category), $key);
+    @return map.get(map.get($colors, $category), $key);
   }
-  @return map-get($colors, $category);
+  @return map.get($colors, $category);
 }
 
 @function size($category) {
-  @return map-get($font-size, $category);
+  @return map.get($font-size, $category);
 }
 @function weight($category) {
-  @return map-get($font-weight, $category);
+  @return map.get($font-weight, $category);
 }
