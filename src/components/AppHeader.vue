@@ -57,6 +57,7 @@ export default {
       pageList: pages,
       searchText: '',
       windowWidth: window.innerWidth,
+      prevSearchText: null,
     }
   },
   computed: {
@@ -74,7 +75,13 @@ export default {
   },
   methods: {
     search () {
+      if (this.searchText === this.prevSearchText) {
+        return
+      }
       this.$store.dispatch('searchPicture', this.searchText)
+        .then(() => {
+          this.prevSearchText = this.searchText
+        })
     },
     handleResize() {
       this.windowWidth = window.innerWidth
