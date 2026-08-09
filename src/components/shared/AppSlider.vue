@@ -4,7 +4,11 @@
       class="slider__btn slider__btn--prev"
       @click="goPrev"
     />
-    <div class="slider__content">
+    <div
+      class="slider__content"
+      @touchstart="touchStartPoint = $event.touches[0].clientX"
+      @touchend="handleTouchEnd"
+    >
       <transition :name="transitionName" mode="out-in">
         <img
           :key="activeIndex"
@@ -22,6 +26,8 @@
 
 <script>
 import AngleIcon from '@/assets/icons/angle.svg'
+
+const SWIPE_THRESHOLD_PX = 100
 
 export default {
   name: 'AppSlider',
@@ -43,9 +49,22 @@ export default {
     return {
       activeIndex: 0,
       direction: 1, // 1 = вперёд, -1 = назад
+      touchStartPoint: 0,
     }
   },
   methods: {
+    handleTouchEnd (event) {
+      const touchEndPoint = event.changedTouches[0].clientX
+      const distance = this.touchStartPoint - touchEndPoint
+
+      if (Math.abs(distance) < SWIPE_THRESHOLD_PX) {
+        return
+      }
+
+      distance > SWIPE_THRESHOLD_PX
+        ? this.goNext()
+        : this.goPrev()
+    },
     goPrev () {
       this.direction = -1
       if (this.activeIndex === 0) {
@@ -108,6 +127,10 @@ export default {
     &:hover {
       stroke: color('btn', 'hover');
     }
+
+    @media (max-width: 756px) {
+      display: none;
+    }
   }
 
   &__btn--prev {
@@ -137,18 +160,6 @@ export default {
       scale: 1.5;
       max-width: 100%;
       height: auto;
-
-      @media (max-width: 600px) {
-        scale: 1.3;
-      }
-
-      @media (max-width: 550px) {
-        scale: 1.1;
-      }
-
-      @media (max-width: 476px) {
-        scale: 1;
-      }
     }
   }
 }

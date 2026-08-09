@@ -64,7 +64,11 @@ export default {
   }
 
   &__body {
-    margin: 20px 30px 35px;
+    margin: 20px 30px 30px;
+
+    @media (max-width: 500px) {
+      margin-bottom: 20px;
+    }
   }
 }
 

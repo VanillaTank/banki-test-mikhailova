@@ -143,7 +143,7 @@ export default {
     margin-bottom: 25px;
 
     @media (max-width: 600px) {
-      margin-bottom: 0;
+      margin-bottom: 10px;
     }
   }
 }
