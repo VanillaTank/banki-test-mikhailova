@@ -33,11 +33,11 @@
               v-if="detailedPicture.cost"
               class="detailed__cost"
             >
-              Стомость: <span class="text-h3">{{ detailedPicture.cost }}$</span>
+              Стоимость: <span class="text-h3">{{ detailedPicture.cost }}$</span>
             </div>
 
             <AppSlider
-              :paths="detailedPicture.slides"
+              :slides="detailedPicture.slides"
             />
           </template>
         </AppModal>

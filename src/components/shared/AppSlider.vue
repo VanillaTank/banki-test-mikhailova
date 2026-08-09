@@ -8,8 +8,8 @@
       <transition :name="transitionName" mode="out-in">
         <img
           :key="activeIndex"
-          :src="paths[activeIndex]"
-          alt=""
+          :src="slides[activeIndex].path"
+          :alt="slides[activeIndex].alt"
         />
       </transition>
     </div>
@@ -29,11 +29,11 @@ export default {
     AngleIcon,
   },
   props: {
-    paths: { type: Array, require: true },
+    slides: { type: Array, require: true },
   },
   computed: {
     lastIndex () {
-      return this.paths.length - 1
+      return this.slides.length - 1
     },
     transitionName () {
       return this.direction === 1 ? 'slide-left' : 'slide-right'
