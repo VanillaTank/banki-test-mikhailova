@@ -3,7 +3,7 @@
     <h1 class="text-h1 catalog__header">Картины эпохи Возрождения</h1>
 
     <div
-      v-if="loading.fetchPictures"
+      v-if="loading.fetchPictures || loading.searchPicture"
       class="catalog__loading"
     >
       Загрузка...

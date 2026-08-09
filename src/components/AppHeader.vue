@@ -30,6 +30,7 @@
         />
         <AppBtn
           class="header__search-btn"
+          :isLoading="loading.fetchPictures || loading.searchPicture"
           @click="search"
         >
           <template>Найти</template>
@@ -44,6 +45,7 @@ import AppBtn from '@/components/shared/AppBtn.vue'
 import AppInput from '@/components/shared/AppInput.vue'
 import MobileNav from '@/components/MobileNav.vue'
 import pages from '@/utils/pages'
+import { mapState } from 'vuex'
 
 export default {
   name: 'AppHeader',
@@ -61,6 +63,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['loading']),
     placeholder () {
       return this.windowWidth > 460 
         ? 'Поиск по названию картины'
