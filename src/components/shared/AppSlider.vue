@@ -1,5 +1,8 @@
 <template>
-  <div class="slider">
+  <div
+    class="slider"
+    @dragstart.prevent
+  >
     <AngleIcon
       class="slider__btn slider__btn--prev"
       @click="goPrev"
@@ -14,6 +17,7 @@
           :key="activeIndex"
           :src="slides[activeIndex].path"
           :alt="slides[activeIndex].alt"
+          draggable="false"
         />
       </transition>
     </div>
@@ -160,6 +164,8 @@ export default {
       scale: 1.5;
       max-width: 100%;
       height: auto;
+      -webkit-user-drag: none;
+      user-drag: none;
     }
   }
 }

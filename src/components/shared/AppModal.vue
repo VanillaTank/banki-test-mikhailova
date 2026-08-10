@@ -1,6 +1,9 @@
 <template>
   <transition name="modal">
-    <div class="modal__mask">
+    <div
+      class="modal__mask"
+      @dragstart.prevent
+    >
       <div class="modal__container">
         
         <div class="header text-h2">
@@ -34,14 +37,28 @@ export default {
   props: {
     title: { type: String, default: '' },
   },
+  created() {
+    document.body.style.overflow = 'hidden'
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
+    document.body.style.paddingRight = `${scrollBarWidth}px`
+  },
+  beforeDestroy() {
+    document.body.style.overflow = ''
+    document.body.style.paddingRight = ''
+  },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+* {
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: text;
+}
 .modal{
   &__mask {
     position: fixed;
-    z-index: 9998;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
@@ -49,18 +66,19 @@ export default {
     background-color: colors('background', 'back');
     display: flex;
     justify-content: center;
-    align-items: center;
     transition: opacity 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
   }
   
   &__container {
-    min-width: 300px;
+    min-width: 200px;
     max-width: 700px;
     width: 100%;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
-    margin: 20px;
+    margin: auto;
   }
 
   &__body {
@@ -79,8 +97,8 @@ export default {
 .modal-leave-active {
   opacity: 0;
 }
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.modal-enter-active .modal__container,
+.modal-leave-active .modal__container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
